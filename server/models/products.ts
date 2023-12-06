@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 import { IProduct } from "../interfaces/product";
 
@@ -8,10 +8,11 @@ const productsSchema = new Schema<IProduct>(
   {
     name: { type: String },
     sku: { type: String },
+    account: { type: mongoose.Schema.Types.ObjectId, ref: "Accounts" },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-const Accounts = cnxProducts.model<IProduct>("Accounts", productsSchema);
+const Products = cnxProducts.model<IProduct>("Products", productsSchema);
 
-export default Accounts;
+export default Products;

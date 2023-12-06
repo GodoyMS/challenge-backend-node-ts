@@ -9,7 +9,7 @@ const accountsSchema = new Schema<IAccount>(
     name: { type: String },
     email: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Accounts = cnxAccounts.model<IAccount>("Accounts", accountsSchema);

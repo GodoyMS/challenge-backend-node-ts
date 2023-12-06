@@ -5,3 +5,13 @@ export interface IAccount {
   createdAt?: string;
   updatedAt?: string;
 }
+export interface IAccountInputMutation {
+  name: string;
+  email: string;
+}
+
+export interface IAccountInputQuery {
+  page: number;
+  pageSize: number;
+  search?: string;
+}

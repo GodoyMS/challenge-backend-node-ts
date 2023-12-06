@@ -1,19 +1,13 @@
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
-import { makeExecutableSchema } from "@graphql-tools/schema";
 
 import { typeDefs, resolvers } from "./root";
 
-import config from "../config/app";
-
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
-
 async function startApolloServer(app: any) {
   const apolloServer = new ApolloServer({
-    schema,
+    typeDefs,
+    resolvers,
+
     csrfPrevention: true,
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
